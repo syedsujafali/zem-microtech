@@ -89,7 +89,7 @@ const About = () => {
               </motion.div>
             </motion.div>
           </div>
-        </div>git commit -m "Initial commit"
+        </div>
       </div>
     </section>
   );
