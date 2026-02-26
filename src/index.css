@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #f8fafc;
+    color: #0f172a;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .glow-purple {
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+  }
+  .glow-blue {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  }
+  .glow-pink {
+    box-shadow: 0 0 20px rgba(236, 72, 153, 0.4);
+  }
+  .text-glow {
+    text-shadow: 0 0 10px currentColor;
+  }
+  
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .blob {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(180deg, rgba(147, 197, 253, 0.4) 0%, rgba(196, 181, 253, 0.4) 100%);
+    filter: blur(80px);
+    border-radius: 50%;
+    z-index: -1;
+  }
+
+  /* responsive blob sizing to avoid overflow on small screens */
+  @media (max-width: 768px) {
+    .blob {
+      width: 300px;
+      height: 300px;
+      filter: blur(60px);
+    }
+  }
+
+  @media (max-width: 420px) {
+    .blob {
+      width: 220px;
+      height: 220px;
+      filter: blur(48px);
+    }
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* small floating blob animation used by some decorative elements */
+  @keyframes blob {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-10px) scale(1.03); }
+    100% { transform: translateY(0) scale(1); }
+  }
+
+  .animate-blob {
+    animation: blob 8s ease-in-out infinite;
+  }
+
+  /* simple responsive helper for images */
+  .img-responsive {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
